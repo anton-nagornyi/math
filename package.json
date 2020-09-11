@@ -15,6 +15,7 @@
     "README.md",
     "LICENSE"
   ],
+  "keywords": ["math", "matrix", "quaternion", "vector", "ts", "typescript"],
   "devDependencies": {
     "@types/jest": "^24.9.1",
     "@types/node": "^14.0.27",
