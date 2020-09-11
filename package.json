@@ -1,12 +1,16 @@
 {
   "name": "anny.math",
   "author": "Anton Nagornyi",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "build": "./node_modules/.bin/rollup -c",
     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anton-nagornyi/math.git"
   },
   "license": "MIT",
   "files": [

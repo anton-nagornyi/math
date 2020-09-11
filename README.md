@@ -8,11 +8,14 @@ This is a basic Math package. It contains routins to work with matrices, quatern
 | ```Mathf.deg2Rad``` | use this to convert degrees to radians. |
 | ```Mathf.rad2Deg``` | use this to convert radians to degrees. |
 
+
+
 | Method | Description |
 | ------ | ------ |
 | ```Mathf.asUint``` | convert number to uint32. |
 | ```Mathf.asInt``` | convert number to int32. |
 | ```Mathf.asFloat``` | convert number to float. |
+
 
 
 ## Matrices
