@@ -1,5 +1,5 @@
 # Math
-This is a basic Math package. It contains routins to work with matrices, quaternions and vectors. All those entities are represented as Float32Arrays.
+This is a basic Math package. It contains routines to work with matrices, quaternions and vectors. All those entities are represented as Float32Arrays.
 | Property | Description |
 | ------ | ------ |
 | ```Mathf.matrix4x4``` | access available matrix functions. |
@@ -45,8 +45,17 @@ Matrices are stored in the column-major order
 | ```Mathf.quaternion.mul``` | calculates the result of transforming the quaternion **b** by the quaternion **a**. |
 
 ## Vectors
+Vectors may be treated as Float32Arrays and also as instances of classes: Vector2, Vector3, Vector4
 | Method | Description |
 | ------ | ------ |
 | ```Mathf.vector.add``` | returns a sum of two vectors element wise. |
+| ```Mathf.vector.sub``` | returns a subtraction of two vectors element wise. |
 | ```Mathf.vector.mul``` | returns a multiplication of two vectors element wise. |
+| ```Mathf.vector.scale``` | returns a multiplication of a vector by another vector element wise. |
+| ```Mathf.vector.div``` | returns a division of a vector and number element wise. |
 | ```Mathf.vector.inverse``` | returns vector inversion as ```1 / v[i]```. |
+| ```Mathf.vector.equals``` | returns true if vectors are equal. |
+| ```Mathf.vector.length``` | returns length(magnitude) of a vector. |
+| ```Mathf.vector.distance``` | returns distance between two points. |
+| ```Mathf.vector.dot``` | returns dot product of two vectors. |
+| ```Mathf.vector.cross``` | returns cross product of two vectors. |
