@@ -1,6 +1,6 @@
-import {Mathf} from "../math/math";
-import {Vector2} from "../math/vectors/vector2";
-import {Vector3} from "../math/vectors/vector3";
+import {Mathf} from "../math";
+import {Vector2} from "../vectors/vector2";
+import {Vector3} from "../vectors/vector3";
 import {expectToBeCloseToArray} from "./utils";
 
 it("array", () =>

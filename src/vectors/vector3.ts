@@ -110,7 +110,9 @@ export class Vector3 extends Float3 implements IVector3
     static readonly front = new Up();
     static readonly back = new Down();
 
-    add(v: INumber3 | Float32Array): IVector3
+    add(v: INumber3): IVector3
+    add(v: Float32Array): IVector3
+    add(v: any): IVector3
     {
         return Mathf.vector.add(this, v, this);
     }
@@ -126,7 +128,9 @@ export class Vector3 extends Float3 implements IVector3
         return this;
     }
 
-    equals(other: INumber3 | Float32Array): boolean
+    equals(other: INumber3): boolean
+    equals(other: Float32Array): boolean
+    equals(other: any): boolean
     {
         return Mathf.vector.equals(this, other);
     }
@@ -153,7 +157,9 @@ export class Vector3 extends Float3 implements IVector3
         return this;
     }
 
-    scale(v: INumber3 | Float32Array): IVector3
+    scale(v: INumber3): IVector3
+    scale(v: Float32Array): IVector3
+    scale(v: any): IVector3
     {
         return Mathf.vector.scale(this, v, this);
     }
@@ -184,7 +190,9 @@ export class Vector3 extends Float3 implements IVector3
         return this;
     }
 
-    sub(v: INumber3 | Float32Array): IVector3
+    sub(v: INumber3): IVector3
+    sub(v: Float32Array): IVector3
+    sub(v: any): IVector3
     {
         return Mathf.vector.sub(this, v, this);
     }

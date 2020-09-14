@@ -72,7 +72,9 @@ export class Vector4 extends Float4 implements IVector4
     static readonly zero = new Zero();
     static readonly one = new One();
 
-    add(v: INumber4 | Float32Array): IVector4
+    add(v: INumber4): IVector4
+    add(v: Float32Array): IVector4
+    add(v: any): IVector4
     {
         return Mathf.vector.add(this, v, this);
     }
@@ -88,7 +90,9 @@ export class Vector4 extends Float4 implements IVector4
         return this;
     }
 
-    equals(other: INumber4 | Float32Array): boolean
+    equals(other: INumber4): boolean
+    equals(other: Float32Array): boolean
+    equals(other: any): boolean
     {
         return Mathf.vector.equals(this, other);
     }
@@ -115,7 +119,9 @@ export class Vector4 extends Float4 implements IVector4
         return this;
     }
 
-    scale(v: INumber4 | Float32Array): IVector4
+    scale(v: INumber4): IVector4
+    scale(v: Float32Array): IVector4
+    scale(v: any): IVector4
     {
         return Mathf.vector.scale(this, v, this);
     }
@@ -149,7 +155,9 @@ export class Vector4 extends Float4 implements IVector4
         return this;
     }
 
-    sub(v: INumber4 | Float32Array): IVector4
+    sub(v: INumber4): IVector4
+    sub(v: Float32Array): IVector4
+    sub(v: any): IVector4
     {
         return Mathf.vector.sub(this, v, this);
     }

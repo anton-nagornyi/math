@@ -1,4 +1,4 @@
-import {Mathf} from "../math/math";
+import {Mathf} from "../math";
 import {expectToBeCloseToArray} from "./utils";
 
 it("inverse", () =>

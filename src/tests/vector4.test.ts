@@ -1,4 +1,4 @@
-import {Vector4} from "../math/vectors/vector4";
+import {Vector4} from "../vectors/vector4";
 
 it("creation", () =>
 {

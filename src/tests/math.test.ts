@@ -1,5 +1,5 @@
 import {expectToBeCloseToArray, extractMNArray} from "./utils";
-import {Mathf} from "../math/math";
+import {Mathf} from "../math";
 
 it("inverse", () =>
 {
@@ -43,10 +43,14 @@ it("setFromQuaternion", () =>
     const out = new Float32Array(16);
     Mathf.matrix4x4.setWithQuaternion(new Float32Array([0.2530835, 0.2757274, 0.209042, 0.9034515]), out);
 
-    const res = extractMNArray(out, 4, 4);
-    console.log(res);
-    //float4x4(0.7605518f, -0.2381545f, 0.6040228f, 0f,  0.5172827f, 0.7845004f, -0.3420202f, 0f,  -0.3924024f, 0.5725746f, 0.7198463f, 0f,  0f, 0f, 0f, 1f)
+    expectToBeCloseToArray(out, [
+        0.7605518, -0.2381545, 0.6040228, 0,
+        0.5172827, 0.7845004, -0.3420202, 0,
+        -0.3924024, 0.5725746, 0.7198463, 0,
+        0, 0, 0, 1]
+    );
 });
+//0501861992
 
 it("eulerXYZ", () =>
 {

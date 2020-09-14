@@ -1,5 +1,5 @@
-import {Vector2} from "../math/vectors/vector2";
-import {Mathf} from "../math/math";
+import {Vector2} from "../vectors/vector2";
+import {Mathf} from "../math";
 
 it("creation", () =>
 {

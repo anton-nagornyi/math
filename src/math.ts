@@ -1,6 +1,6 @@
 import {Matrix4x4} from "./matrix";
-import {Vector} from "./vector";
 import {Quaternion} from "./quaternion";
+import {Vector} from "./vector";
 
 /**
  * Math functions for static access

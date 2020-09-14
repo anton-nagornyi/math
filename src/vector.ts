@@ -743,7 +743,7 @@ export class Vector
      * @param v1 - first vector
      * @param v2 - second vector
      */
-    equals(v1: INumber2, v2: INumber2): boolean;
+    equals(v1: INumber4, v2: INumber4): boolean;
     /**
      * Returns true if vectors are equal (if the magnitude of their difference is less than 1e-5)
      * @param v1 - first vector
@@ -755,7 +755,7 @@ export class Vector
      * @param v1 - first vector
      * @param v2 - second vector
      */
-    equals(v1: INumber4, v2: INumber4): boolean;
+    equals(v1: INumber2, v2: INumber2): boolean;
     /** @internal */ equals(v1: any, v2: any): boolean
     {
         if (v1 instanceof Float32Array && v2 instanceof Float32Array)
