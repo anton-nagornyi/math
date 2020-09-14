@@ -1,8 +1,8 @@
 import {INumber2, INumber3, INumber4} from "./vectors/numbers";
-import {VectorData} from "./vectors/vectorData";
 import {Vector2} from "./vectors/vector2";
 import {Vector3} from "./vectors/vector3";
 import {Vector4} from "./vectors/vector4";
+import {AVectorData} from "./vectors/floats";
 
 const epsilon = 1e-5;
 
@@ -762,15 +762,15 @@ export class Vector
         {
             return this.getEqual(v1 as any as Float32Array, v2 as any as Float32Array);
         }
-        if (v1 instanceof VectorData && v2 instanceof VectorData)
+        if (v1 instanceof AVectorData && v2 instanceof AVectorData)
         {
             return this.getEqual(v1.value, v2.value);
         }
-        if (v1 instanceof VectorData && v2 instanceof Float32Array)
+        if (v1 instanceof AVectorData && v2 instanceof Float32Array)
         {
             return this.getEqual(v1.value, v2 as any as Float32Array);
         }
-        if (v2 instanceof VectorData && v1 instanceof Float32Array)
+        if (v2 instanceof AVectorData && v1 instanceof Float32Array)
         {
             return this.getEqual(v1 as any as Float32Array, v2.value);
         }
@@ -824,7 +824,7 @@ export class Vector
     /** @internal */ length(v: any) : number
     {
         if (v instanceof Float32Array) return this.getLength(v as any as Float32Array);
-        if (v instanceof VectorData)
+        if (v instanceof AVectorData)
         {
             return this.getLength(v.value);
         }
@@ -870,7 +870,7 @@ export class Vector
         {
             return this.getDistance(p1, p2);
         }
-        if (p1 instanceof VectorData && p2 instanceof VectorData)
+        if (p1 instanceof AVectorData && p2 instanceof AVectorData)
         {
             return this.getDistance(p1.value, p2.value);
         }

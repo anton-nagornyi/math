@@ -1,7 +1,11 @@
-import {VectorData} from "./vectorData";
 import {INumber2, INumber3, INumber4} from "./numbers";
 
-export class Float2 extends VectorData<Float32Array> implements INumber2
+export abstract class AVectorData
+{
+    abstract value: Float32Array;
+}
+
+export class Float2 extends AVectorData implements INumber2
 {
     value = new Float32Array(2);
 
@@ -23,7 +27,7 @@ export class Float2 extends VectorData<Float32Array> implements INumber2
     }
 }
 
-export class Float3 extends VectorData<Float32Array> implements INumber3
+export class Float3 extends AVectorData implements INumber3
 {
     value = new Float32Array(3);
 
@@ -53,7 +57,7 @@ export class Float3 extends VectorData<Float32Array> implements INumber3
     }
 }
 
-export class Float4 extends VectorData<Float32Array> implements INumber4
+export class Float4 extends AVectorData implements INumber4
 {
     value = new Float32Array(4);
 
