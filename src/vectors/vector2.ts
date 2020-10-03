@@ -174,8 +174,10 @@ export class Vector2 extends Float2 implements IVector2
         }
         if (x instanceof Float32Array)
         {
-            this.value[0] = x[0];
-            this.value[1] = x[1];
+            for (let i = 0; i < Math.min(this.value.length, x.length); ++i)
+            {
+                this.value[i] = x[i];
+            }
             return this;
         }
         this.value[0] = (x as INumber2).x;

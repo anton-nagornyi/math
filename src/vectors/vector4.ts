@@ -142,10 +142,10 @@ export class Vector4 extends Float4 implements IVector4
         }
         if (x instanceof Float32Array)
         {
-            this.value[0] = x[0];
-            this.value[1] = x[1];
-            this.value[2] = x[2];
-            this.value[3] = x[3];
+            for (let i = 0; i < Math.min(this.value.length, x.length); ++i)
+            {
+                this.value[i] = x[i];
+            }
             return this;
         }
         this.value[0] = (x as INumber4).x;

@@ -124,7 +124,7 @@ export class Vector
     {
         if (arg1 instanceof Float32Array && arg2 instanceof Float32Array)
         {
-            for (let i = 0; i < arg1.length; ++i)
+            for (let i = 0; i < Math.min(arg1.length, arg2.length); ++i)
             {
                 arg1[i] += arg2[i];
             }
@@ -320,7 +320,7 @@ export class Vector
     {
         if (arg1 instanceof Float32Array && arg2 instanceof Float32Array)
         {
-            for (let i = 0; i < arg1.length; ++i)
+            for (let i = 0; i < Math.min(arg1.length, arg2.length); ++i)
             {
                 arg1[i] -= arg2[i];
             }
@@ -578,7 +578,7 @@ export class Vector
     {
         if (arg1 instanceof Float32Array && arg2 instanceof Float32Array)
         {
-            for (let i = 0; i < arg1.length; ++i)
+            for (let i = 0; i < Math.min(arg1.length, arg2.length); ++i)
             {
                 arg1[i] *= arg2[i];
             }

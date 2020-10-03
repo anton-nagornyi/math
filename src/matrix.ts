@@ -2,7 +2,8 @@ import {Mathf} from "./math";
 
 export class Matrix4x4
 {
-    /** @internal */ private out = new Float32Array(16);
+    /** @internal */ private _out = new Float32Array(16);
+    /** @internal */ private _out3 = new Float32Array(3);
 
     /** @internal */ private _identity = new Float32Array([
         1.0, 0.0, 0.0, 0.0,
@@ -129,7 +130,7 @@ export class Matrix4x4
     {
         const a = outMatrixA;
         const b = matrixB;
-        const o = this.out;
+        const o = this._out;
 
         o[0]   = a[0]   * b[0] + a[1]  * b[4] + a[2]  * b[8] + a[3]  * b[12];
         o[4]   = a[4]   * b[0] + a[5]  * b[4] + a[6]  * b[8] + a[7]  * b[12];
@@ -152,7 +153,26 @@ export class Matrix4x4
         o[15]  = a[12]  * b[3] + a[13] * b[7] + a[14] * b[11] + a[15] * b[15];
         this.setWithMatrix(o, outMatrixA);
     }
+    /**
+     * Returns the float3 column vector result of a matrix multiplication between a float4x4 matrix and a float3 column vector
+     * @param matrix - matrix to multiply
+     * @param outV3 - vector to multiply. Result will be put here
+     */
+    mul3(matrix: Float32Array, outV3: Float32Array): Float32Array
+    {
+        //a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
+        this._out3[0] = outV3[0];
+        this._out3[1] = outV3[1];
+        this._out3[2] = outV3[2];
+        const a = matrix;
+        const b = this._out3;
 
+        outV3[0] = a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3];
+        outV3[1] = a[4] * b[0] + a[5] * b[1] + a[6] * b[2] + a[7];
+        outV3[2] = a[8] * b[0] + a[9] * b[1] + a[10] * b[2] + a[11];
+        outV3[3] = a[12] * b[0] + a[13] * b[1] + a[14] * b[2] + a[15];
+        return outV3;
+    }
     /**
      * Sets matrix with rows
      * @param matrix - matrix to set
@@ -212,7 +232,7 @@ export class Matrix4x4
 
         for (let i = 0; i < quaternion.length; ++i)
         {
-            this.out[i] = quaternion[i];
+            this._out[i] = quaternion[i];
         }
         const vx = Mathf.asUint(quaternion[0]);
         const vy = Mathf.asUint(quaternion[1]);
