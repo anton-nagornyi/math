@@ -8,6 +8,8 @@ const epsilon = 1e-5;
 
 export class Vector
 {
+    /** @internal */ private _out3 = new Float32Array(3);
+
     /**
      * Returns a sum of two vectors element wise
      * @param outV1 - sum is written here
@@ -427,10 +429,19 @@ export class Vector
      * @param dest - optional. Destination where to write result. In case it is provided it will be returned
      */
     mul(v1: INumber2, a: number, dest?: Vector2): Vector2;
-    /** @internal */ mul(arg1: any, a: number, dest?: any): any
+    /** Returns the float3 row vector result of a matrix multiplication between a float3 row vector and a float4x4 matrix.
+     * @param outV1 - vector. Multiplication result is written here
+     * @param matrix - matrix to multiply
+     */
+    mul(outV1: Float32Array, matrix: Float32Array): Float32Array;
+    /** @internal */ mul(arg1: any, a: any, dest?: any): any
     {
         if (arg1 instanceof Float32Array)
         {
+            if (a instanceof Float32Array && arg1.length === 3 && a.length === 16)
+            {
+                return this.mul16(arg1, a);
+            }
             for (let i = 0; i < arg1.length; ++i)
             {
                 arg1[i] *= a;
@@ -1083,5 +1094,20 @@ export class Vector
             product += v1[i] * v2[i];
         }
         return product;
+    }
+
+    /**@internal */private mul16(v1: Float32Array, matrix: Float32Array): Float32Array
+    {
+        this._out3[0] = v1[0];
+        this._out3[1] = v1[1];
+        this._out3[2] = v1[2];
+        const b = matrix;
+        const a = this._out3;
+
+        v1[0] = a[0] * b[0] + a[1] * b[4] + a[2] * b[8] + b[12];
+        v1[1] = a[0] * b[1] + a[1] * b[5] + a[2] * b[9] + b[13];
+        v1[2] = a[0] * b[2] + a[1] * b[6] + a[2] * b[10] + b[14];
+        v1[3] = a[0] * b[3] + a[1] * b[7] + a[2] * b[11] + b[15];
+        return v1;
     }
 }

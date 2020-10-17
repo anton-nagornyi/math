@@ -11,6 +11,23 @@ it("array", () =>
     expect(c === a).toBeTruthy();
     expectToBeCloseToArray(a, [2.2, 4.4, 6.6, 8.8]);
 });
+it("mul matrix", () =>
+{
+    const b = new Float32Array([
+        0.2140887, 0.2551409, -0.2794729, 0.1140481,
+        -0.19862, 0.3490749, 0.1665314, -0.999124,
+        0.3221057, 0.04566975, 0.2884409, -1.278768,
+        0, 0, 0, 0.9999999
+    ]);
+
+    const a = new Float32Array([10, 15, 20]);
+
+    Mathf.vector.mul(a, b);
+
+    expectToBeCloseToArray(a,         [
+        5.603701114654541, 8.700927734375, 5.472060203552246
+    ]);
+});
 
 it("numbers2", () =>
 {
